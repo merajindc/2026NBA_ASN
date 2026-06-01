@@ -43,7 +43,6 @@
   .section { display: none; }
   .section.active { display: block; }
 
-  /* Leaderboard */
   .lb { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
   .lb-row { display: grid; grid-template-columns: 36px 1fr 52px repeat(5,44px) 56px; align-items: center; padding: 11px 16px; border-bottom: 1px solid var(--border); gap: 4px; transition: background .1s; }
   .lb-row:last-child { border-bottom: none; }
@@ -57,7 +56,6 @@
   .pts-pos { color: var(--green); }
   .pts-zero { color: var(--text3); }
 
-  /* Bracket */
   .bracket-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
   @media(max-width:600px){ .bracket-grid { grid-template-columns: 1fr; } }
   .conf-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--text3); margin-bottom: .6rem; }
@@ -76,16 +74,9 @@
   .series-score.g7 { color: var(--yellow); }
   .finals-banner { background: var(--bg2); border: 1px solid var(--border2); border-radius: var(--radius); padding: 1.25rem 1.5rem; text-align: center; margin-top: 1.5rem; }
   .finals-banner .label { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; color: var(--text3); margin-bottom: .4rem; }
-  .finals-banner .teams { font-size: 18px; font-weight: 700; color: var(--text2); }
-  .upcoming { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
-  .upcoming-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--orange); margin-bottom: .75rem; }
-  .upcoming-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem 2rem; }
-  @media(max-width:480px){ .upcoming-grid { grid-template-columns: 1fr; } }
-  .upcoming-conf { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--text3); margin-bottom: .4rem; }
-  .upcoming-row { display: flex; justify-content: space-between; font-size: 13px; padding: 3px 0; }
-  .upcoming-seed { color: var(--text3); font-size: 11px; margin-right: 4px; }
+  .finals-banner .teams { font-size: 18px; font-weight: 700; color: var(--text); }
+  .finals-banner .note { font-size: 12px; color: var(--text3); margin-top: .35rem; }
 
-  /* Picks */
   .picks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px,1fr)); gap: 1rem; }
   .pick-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
   .pick-hdr { padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); background: var(--bg3); }
@@ -108,7 +99,6 @@
 
   .legend { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 12px; color: var(--text2); margin-bottom: 1rem; }
 
-  /* Scoring */
   .scoring-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px,1fr)); gap: 1rem; }
   .scoring-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; }
   .scoring-card.total { background: var(--bg3); border-color: var(--border2); }
@@ -137,16 +127,16 @@
   <div class="header">
     <div class="header-top">
       <h1 class="title">2026 NBA Playoffs <span>Pool</span></h1>
-      <span class="badge badge-done">R2 Complete</span>
+      <span class="badge badge-live">Finals</span>
     </div>
-    <p class="subtitle">ASN bracket pool &nbsp;·&nbsp; 16 participants &nbsp;·&nbsp; 141 pts available &nbsp;·&nbsp; Conf. Finals starting May 19</p>
+    <p class="subtitle">ASN bracket pool &nbsp;·&nbsp; 16 participants &nbsp;·&nbsp; 141 pts available &nbsp;·&nbsp; NBA Finals start June 3</p>
   </div>
 
   <div class="stat-strip">
-    <div class="stat"><div class="stat-label">Round</div><div class="stat-val" style="color:var(--orange)">Conf. Finals</div><div class="stat-sub">Starting May 19</div></div>
+    <div class="stat"><div class="stat-label">Round</div><div class="stat-val" style="color:var(--orange)">Finals</div><div class="stat-sub">June 3 tip-off</div></div>
     <div class="stat"><div class="stat-label">Participants</div><div class="stat-val">16</div><div class="stat-sub">in the pool</div></div>
-    <div class="stat"><div class="stat-label">R2 Sweeps</div><div class="stat-val">2</div><div class="stat-sub">Thunder &amp; Knicks</div></div>
-    <div class="stat"><div class="stat-label">Pts left</div><div class="stat-val">53</div><div class="stat-sub">CF + Finals + MVP</div></div>
+    <div class="stat"><div class="stat-label">Finalists</div><div class="stat-val">SAS</div><div class="stat-sub">vs. Knicks</div></div>
+    <div class="stat"><div class="stat-label">Pts left</div><div class="stat-val">25</div><div class="stat-sub">Finals (20) + MVP (5)</div></div>
   </div>
 
   <div class="tabs">
@@ -172,24 +162,11 @@
       </div>
       <div id="lb-rows"></div>
     </div>
-    <p style="font-size:11px;color:var(--text3);margin-top:.6rem">53 pts still available: CF (28) + Finals (20) + MVP (5)</p>
+    <p style="font-size:11px;color:var(--text3);margin-top:.6rem">25 pts still available: Finals (20) + MVP (5)</p>
   </div>
 
   <!-- BRACKET -->
   <div id="bracket" class="section">
-    <div class="upcoming">
-      <div class="upcoming-label">Conference Finals — starting May 19</div>
-      <div class="upcoming-grid">
-        <div>
-          <div class="upcoming-conf">West — WCF</div>
-          <div class="upcoming-row"><span><span class="upcoming-seed">1v2</span>Thunder vs Spurs</span><span style="font-size:11px;color:var(--text3)">May 19</span></div>
-        </div>
-        <div>
-          <div class="upcoming-conf">East — ECF</div>
-          <div class="upcoming-row"><span><span class="upcoming-seed">4v3</span>Cavaliers vs Knicks</span><span style="font-size:11px;color:var(--text3)">May 19</span></div>
-        </div>
-      </div>
-    </div>
     <div class="bracket-grid">
       <div>
         <div class="conf-label">Western Conference</div>
@@ -201,8 +178,8 @@
         <div class="round-head">Semifinals <span class="badge badge-done">Complete</span></div>
         <div class="matchup"><div class="team-row won"><span class="team-name">Thunder</span><span class="series-score sweep">4–0 sweep</span></div><div class="team-row lost"><span class="team-name">Lakers</span></div></div>
         <div class="matchup"><div class="team-row won"><span class="team-name">Spurs</span><span class="series-score">4–2</span></div><div class="team-row lost"><span class="team-name">Timberwolves</span></div></div>
-        <div class="round-head">WCF <span class="badge badge-live">Starting May 19</span></div>
-        <div class="matchup"><div class="team-row tbd"><span class="team-name">Thunder</span></div><div class="team-row tbd"><span class="team-name">Spurs</span></div></div>
+        <div class="round-head">WCF <span class="badge badge-done">Complete</span></div>
+        <div class="matchup"><div class="team-row won"><span class="team-name">Spurs</span><span class="series-score g7">4–3 G7</span></div><div class="team-row lost"><span class="team-name">Thunder</span></div></div>
       </div>
       <div>
         <div class="conf-label">Eastern Conference</div>
@@ -212,15 +189,16 @@
         <div class="matchup"><div class="team-row won"><span class="team-name">Knicks</span><span class="series-score">4–2</span></div><div class="team-row lost"><span class="team-name">Hawks</span></div></div>
         <div class="matchup"><div class="team-row won"><span class="team-name">Cavaliers</span><span class="series-score g7">4–3 G7</span></div><div class="team-row lost"><span class="team-name">Raptors</span></div></div>
         <div class="round-head">Semifinals <span class="badge badge-done">Complete</span></div>
-        <div class="matchup"><div class="team-row won"><span class="team-name">Cavaliers</span><span class="series-score g7">4–3 G7</span></div><div class="team-row lost"><span class="team-name">Pistons</span></div></div>
+        <div class="matchup"><div class="team-row lost"><span class="team-name">Pistons</span></div><div class="team-row won"><span class="team-name">Cavaliers</span><span class="series-score g7">4–3 G7</span></div></div>
         <div class="matchup"><div class="team-row won"><span class="team-name">Knicks</span><span class="series-score sweep">4–0 sweep</span></div><div class="team-row lost"><span class="team-name">76ers</span></div></div>
-        <div class="round-head">ECF <span class="badge badge-live">Starting May 19</span></div>
-        <div class="matchup"><div class="team-row tbd"><span class="team-name">Cavaliers</span></div><div class="team-row tbd"><span class="team-name">Knicks</span></div></div>
+        <div class="round-head">ECF <span class="badge badge-done">Complete</span></div>
+        <div class="matchup"><div class="team-row won"><span class="team-name">Knicks</span><span class="series-score sweep">4–0 sweep</span></div><div class="team-row lost"><span class="team-name">Cavaliers</span></div></div>
       </div>
     </div>
     <div class="finals-banner">
-      <div class="label">NBA Finals — June 3 · ABC · 8:30 PM ET</div>
-      <div class="teams">WC Champion &nbsp;vs&nbsp; EC Champion</div>
+      <div class="label">🏆 NBA Finals — Starting June 3 · ABC · 8:30 PM ET</div>
+      <div class="teams">San Antonio Spurs &nbsp;vs&nbsp; New York Knicks</div>
+      <div class="note">First Finals for Knicks since 1999 · First Finals for Spurs since 2014</div>
     </div>
   </div>
 
@@ -248,11 +226,21 @@
 <script>
 const SC = { r1:{f:7,w:5}, r2:{f:8,w:5}, cf:{f:14,w:10}, fin:{f:20,w:15}, mvp:5 };
 
-// R1 actuals: [Thunder/Suns, Lakers/Rockets, Nuggets/Wolves, Spurs/Blazers, Pistons/Magic, Cavs/Raptors, Knicks/Hawks, Celtics/Sixers]
+// R1: [Thunder/Suns, Lakers/Rockets, Nuggets/Wolves, Spurs/Blazers, Pistons/Magic, Cavs/Raptors, Knicks/Hawks, Celtics/Sixers]
+// R2: [Thunder/Lakers, Spurs/Wolves, Pistons/Cavs, Knicks/76ers]
+// CF: [WCF Spurs/Thunder, ECF Knicks/Cavs]
 const ACT = {
   r1: [{w:'Thunder',g:4},{w:'Lakers',g:6},{w:'Wolves',g:6},{w:'Spurs',g:5},{w:'Pistons',g:7},{w:'Cavs',g:7},{w:'Knicks',g:6},{w:'76ers',g:7}],
-  r2: [{w:'Thunder',g:4},{w:'Spurs',g:6},{w:'Cavs',g:7},{w:'Knicks',g:4}],
-  cf: [{w:null,g:null},{w:null,g:null}],
+  r2: [
+    {w:'Thunder',g:4},  // Thunder swept Lakers 4-0
+    {w:'Spurs',  g:6},  // Spurs def. Wolves 4-2
+    {w:'Cavs',   g:7},  // Cavs def. Pistons 4-3
+    {w:'Knicks', g:4},  // Knicks swept 76ers 4-0
+  ],
+  cf: [
+    {w:'Spurs',  g:7},  // WCF: Spurs def. Thunder 4-3
+    {w:'Knicks', g:4},  // ECF: Knicks def. Cavs 4-0
+  ],
   fin: {w:null,g:null}, mvp: null
 };
 
@@ -264,8 +252,9 @@ const AL = {
   trailblazers:'blazers',portland:'blazers',magic:'orlando',hawks:'atlanta',
   raptors:'toronto',suns:'phoenix',celtics:'boston',bostonceltics:'celtics',
   ant:'anthonyedwards',anthonyedwards:'anthonyedwards',
-  shae:'shaegilgeousalexander',shai:'shaigilgeousalexander',sga:'shaigilgeousalexander',
-  luka:'lukadoncic'
+  shae:'shaigilgeousalexander',shai:'shaigilgeousalexander',sga:'shaigilgeousalexander',
+  luka:'lukadoncic',wemby:'wembanyama',wembanyama:'wembanyama',
+  brunson:'jalenbrunson'
 };
 function norm(s){ return s ? s.trim().toLowerCase().replace(/[\s\.\-_]/g,'') : ''; }
 function can(s){ const n=norm(s); return AL[n]||n; }
@@ -283,8 +272,8 @@ function iconFor(pt,pg,aw,ag,pts){
 }
 
 const R1L = ['Thunder/Suns','Lakers/Rockets','Nuggets/Wolves','Spurs/Blazers','Pistons/Magic','Cavs/Raptors','Knicks/Hawks','Celtics/Sixers'];
+const R2L = ['Thunder/Lakers','Spurs/Wolves','Pistons/Cavs','Knicks/76ers'];
 
-// All 16 participants — R2 picks ordered: [WC1(Thunder/Lakers), WC2(Spurs/Wolves), EC1(Pistons/Cavs), EC2(Knicks/76ers)]
 const POOL = [
   {name:'Yaseen',
    r1:[{p:'Thunder',g:5},{p:'Rockets',g:6},{p:'Nuggets',g:5},{p:'Spurs',g:4},{p:'Pistons',g:4},{p:'Cavs',g:5},{p:'Knicks',g:6},{p:'Celtics',g:6}],
@@ -361,10 +350,9 @@ function calcPts(p){
 function renderLB(){
   const data=POOL.map(p=>({...p,pts:calcPts(p)})).sort((a,b)=>b.pts.total-a.pts.total);
   const medals=['🥇','🥈','🥉'];
-  const maxRem=2*SC.cf.f+SC.fin.f+SC.mvp;
   const html=data.map((p,i)=>{
     const rank=i+1, disp=rank<=3?medals[rank-1]:rank;
-    const cls=p.pts.r1>0?'pts-pos':'pts-zero';
+    const cls=p.pts.total>0?'pts-pos':'pts-zero';
     const r2d=p.pts.r2||'—',cfd=p.pts.cf||'—',find=p.pts.fin||'—',mvpd=p.pts.mvp||'—';
     return `<div class="lb-row">
       <span class="lb-rank">${disp}</span>
@@ -383,7 +371,7 @@ function renderLB(){
 function renderPicks(){
   const data=POOL.map(p=>({...p,pts:calcPts(p)})).sort((a,b)=>b.pts.total-a.pts.total);
   const html=data.map(p=>{
-    const cls=p.pts.r1>0?'pts-pos':'pts-zero';
+    const cls=p.pts.total>0?'pts-pos':'pts-zero';
     const r1=p.r1.map((pk,i)=>{
       const ic=iconFor(pk.p,pk.g,ACT.r1[i].w,ACT.r1[i].g,SC.r1);
       const note=(ic.c==='ic-no')?`<span class="actual-note">(${ACT.r1[i].w} in ${ACT.r1[i].g})</span>`:'';
@@ -392,11 +380,13 @@ function renderPicks(){
     }).join('');
     const r2=p.r2.map((pk,i)=>{
       const ic=iconFor(pk.p,pk.g,ACT.r2[i].w,ACT.r2[i].g,SC.r2);
-      return `<div class="pick-item"><span class="${ic.c}">${ic.s}</span>${pk.p} in ${pk.g||'?'}${ic.lbl?` <span class="pts-lbl">${ic.lbl}</span>`:''}</div>`;
+      const note=(ic.c==='ic-no')?`<span class="actual-note">(${ACT.r2[i].w} in ${ACT.r2[i].g})</span>`:'';
+      return `<div class="pick-item"><span class="${ic.c}">${ic.s}</span><span style="color:var(--text3);font-size:11px">${R2L[i]}:</span>${pk.p} in ${pk.g||'?'}${ic.lbl?` <span class="pts-lbl ${ic.c==='ic-ok'?'ok':ic.c==='ic-part'?'part':''}">${ic.lbl}</span>`:''} ${note}</div>`;
     }).join('');
     const cf=p.cf.map((pk,i)=>{
       const ic=iconFor(pk.p,pk.g,ACT.cf[i].w,ACT.cf[i].g,SC.cf);
-      return `<div class="pick-item"><span class="${ic.c}">${ic.s}</span>${['WCF','ECF'][i]}: ${pk.p} in ${pk.g||'?'}${ic.lbl?` <span class="pts-lbl">${ic.lbl}</span>`:''}</div>`;
+      const note=(ic.c==='ic-no')?`<span class="actual-note">(${ACT.cf[i].w} in ${ACT.cf[i].g})</span>`:'';
+      return `<div class="pick-item"><span class="${ic.c}">${ic.s}</span>${['WCF','ECF'][i]}: ${pk.p} in ${pk.g||'?'}${ic.lbl?` <span class="pts-lbl ${ic.c==='ic-ok'?'ok':ic.c==='ic-part'?'part':''}">${ic.lbl}</span>`:''} ${note}</div>`;
     }).join('');
     const fic=iconFor(p.fin.p,p.fin.g,ACT.fin.w,ACT.fin.g,SC.fin);
     const mvpOk=ACT.mvp&&same(p.mvp,ACT.mvp);
@@ -404,8 +394,8 @@ function renderPicks(){
       <div class="pick-hdr"><span class="pick-hdr-name">${p.name}</span><span style="font-size:13px;font-weight:700;" class="${cls}">${p.pts.total} pts</span></div>
       <div class="pick-body">
         <div class="pick-section">Round 1 — ${p.pts.r1} pts</div>${r1}
-        <div class="pick-section">Round 2</div>${r2}
-        <div class="pick-section">Conf. Finals</div>${cf}
+        <div class="pick-section">Round 2 — ${p.pts.r2} pts</div>${r2}
+        <div class="pick-section">Conf. Finals — ${p.pts.cf} pts</div>${cf}
         <div class="pick-section">NBA Finals</div>
         <div class="pick-item"><span class="${fic.c}">${fic.s}</span>${p.fin.p} in ${p.fin.g||'?'}${fic.lbl?` <span class="pts-lbl">${fic.lbl}</span>`:''}</div>
         <div class="pick-footer">
